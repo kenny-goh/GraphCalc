@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<script src="math.js"></script>
+<script src="graphcalc.js"></script>
+
+
+<html>
+    <body>
+    <h1>GraphCalc: A minimalist javascript graph calculator</h1>
+     Author: Kenny Goh<BR>
+     Version: 1.0<BR>
+     Date upated: 09/06/2017<BR>   
+     <BR>
+     Expression <input type="text" 
+                       id="InputExpression" 
+                       name="Expression"
+                       value="y=x^2+x"
+                       onkeyup="compute()"> <button type="BtnCompute" onclick="compute()">Compute</button>
+     <BR>
+     <p id="mathExpr" style="text-align:left"></p>
+     <BR>
+
+    
+    <div id="demo">
+        <canvas id="canvas"   
+                width="640"
+                height="480">
+        </canvas>
+    </div>
+
+    </body>
+</html> 
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script type="text/javascript" >
+        var model = new GraphCalcModel();
+        var view = new GraphCalcView(model);
+       //model.setExpression("x^2+5");
+  
+        function compute() {
+            var expr = document.getElementById('InputExpression').value   
+            var text = document.getElementById("mathExpr");
+            text.innerHTML = "`" + expr + " `";
+            model.setExpression(expr);     
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, 'mathExpr']);
+        }
+
+        compute()
+</script>
+
+
