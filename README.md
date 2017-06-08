@@ -1,5 +1,7 @@
 # GraphCalc
 
-![Screenshot](2017-06-09 08_02_41-graphcalc.html.png)
+A simple and minimal graph calculator implemented using JavaScript.
+
+![Screenshot](screenshot.png)
 
 
